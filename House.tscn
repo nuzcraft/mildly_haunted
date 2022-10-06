@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://collision_models/wall.tscn" type="PackedScene" id=1]
+[ext_resource path="res://collision_models/floorFull.tscn" type="PackedScene" id=2]
+[ext_resource path="res://collision_models/wallDoorway.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://collision_models/wallDoorwayWide.tscn" type="PackedScene" id=5]
+[ext_resource path="res://collision_models/doorway.tscn" type="PackedScene" id=6]
+[ext_resource path="res://House.gd" type="Script" id=7]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("doors/bedroom_door:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "bedroom_door_close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("doors/bedroom_door:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 0.535887 ),
+"update": 0,
+"values": [ Vector3( 0, 75, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "bedroom_door_open"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("doors/bedroom_door:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 78, 0 ), Vector3( 0, 75, 0 ) ]
+}
+
+[node name="House" type="Spatial"]
+script = ExtResource( 7 )
+
+[node name="floor" parent="." instance=ExtResource( 2 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+
+[node name="outer_walls" type="Node" parent="."]
+
+[node name="wall" parent="outer_walls" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="wall2" parent="outer_walls" instance=ExtResource( 1 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.95 )
+
+[node name="wall3" parent="outer_walls" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-07, 0, 1, 0, 1, 0, -10, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="wall4" parent="outer_walls" instance=ExtResource( 1 )]
+transform = Transform( -3.73732e-07, 0, 1, 0, 1, 0, -8.55, 0, -4.37114e-08, 10, 0, -1.45 )
+
+[node name="wall5" parent="outer_walls" instance=ExtResource( 1 )]
+transform = Transform( -2.40413e-08, 0, 1, 0, 1, 0, -0.55, 0, -4.37114e-08, 10, 0, 0 )
+
+[node name="wallDoorway" parent="outer_walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 0, -0.5 )
+
+[node name="inner_walls" type="Node" parent="."]
+
+[node name="wall" parent="inner_walls" instance=ExtResource( 1 )]
+transform = Transform( 3.05, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5 )
+
+[node name="wall2" parent="inner_walls" instance=ExtResource( 1 )]
+transform = Transform( -1.11464e-07, 0, 1, 0, 1, 0, -2.55, 0, -4.37114e-08, 4, 0, -5 )
+
+[node name="wall5" parent="inner_walls" instance=ExtResource( 1 )]
+transform = Transform( -6.77527e-08, 0, 1, 0, 1, 0, -1.55, 0, -4.37114e-08, 4, 0, -8.45 )
+
+[node name="wall6" parent="inner_walls" instance=ExtResource( 1 )]
+transform = Transform( -6.77527e-08, 0, 1, 0, 1, 0, -1.55, 0, -4.37114e-08, 6, 0, -8.45 )
+
+[node name="wall3" parent="inner_walls" instance=ExtResource( 1 )]
+transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6 )
+
+[node name="wall4" parent="inner_walls" instance=ExtResource( 1 )]
+transform = Transform( -6.77527e-08, 0, 1, 0, 1, 0, -1.55, 0, -4.37114e-08, 6, 0, -6 )
+
+[node name="wallDoorway" parent="inner_walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5 )
+
+[node name="wallDoorwayWide" parent="inner_walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, -7.5 )
+
+[node name="wallDoorway2" parent="inner_walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, -7.5 )
+
+[node name="player" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29171, 0.842306, -3.12378 )
+
+[node name="doors" type="Node" parent="."]
+
+[node name="bedroom_door" parent="doors" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 0, -5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/bedroom_door_close = SubResource( 2 )
+anims/bedroom_door_open = SubResource( 3 )

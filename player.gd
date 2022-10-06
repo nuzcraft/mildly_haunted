@@ -29,6 +29,10 @@ func _input(event):
 		rotate_y(deg2rad(-event.relative.x * mouse_sense))
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sense))
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
+		
+	if Input.is_action_just_pressed("ui_accept"):
+			Events.emit_signal("bedroom_door_open")
+			print("signal emitted")
 
 func _process(delta):
 	#camera physics interpolation to reduce physics jitter on high refresh-rate monitors
