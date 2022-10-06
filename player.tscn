@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://FPS.gd" type="Script" id=1]
+[ext_resource path="res://player.gd" type="Script" id=1]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -12,9 +12,12 @@ radius = 0.5
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 0.1
 
-[node name="FPS" type="KinematicBody"]
+[node name="player" type="KinematicBody"]
 collision_layer = 2
 script = ExtResource( 1 )
+speed = 1.0
+cam_accel = 20
+mouse_sense = 0.3
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0 )

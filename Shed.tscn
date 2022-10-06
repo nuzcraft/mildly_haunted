@@ -2,12 +2,12 @@
 
 [ext_resource path="res://collision_models/floorFull.tscn" type="PackedScene" id=1]
 [ext_resource path="res://collision_models/lampRoundFloor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://FPS.tscn" type="PackedScene" id=6]
+[ext_resource path="res://player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://collision_models/wall.tscn" type="PackedScene" id=7]
 
 [node name="Shed" type="Spatial"]
 
-[node name="FPS" parent="." instance=ExtResource( 6 )]
+[node name="player" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28048, 0.55, -1.59494 )
 
 [node name="wall" parent="." instance=ExtResource( 7 )]

@@ -1,14 +1,14 @@
 extends KinematicBody
 
-var speed = 7
-const ACCEL_DEFAULT = 7
-const ACCEL_AIR = 1
+export(float) var speed = 7
+export(int) var ACCEL_DEFAULT = 7
+export(int) var ACCEL_AIR = 1
 onready var accel = ACCEL_DEFAULT
-var gravity = 9.8
-var jump = 5
+export(float) var gravity = 9.8
+export(int) var jump = 5
 
-var cam_accel = 40
-var mouse_sense = 0.1
+export(int) var cam_accel = 40
+export(float) var mouse_sense = 0.1
 var snap
 
 var direction = Vector3()
@@ -59,9 +59,9 @@ func _physics_process(delta):
 		accel = ACCEL_AIR
 		gravity_vec += Vector3.DOWN * gravity * delta
 		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		snap = Vector3.ZERO
-		gravity_vec = Vector3.UP * jump
+#	if Input.is_action_just_pressed("jump") and is_on_floor():
+#		snap = Vector3.ZERO
+#		gravity_vec = Vector3.UP * jump
 	
 	#make it move
 	velocity = velocity.linear_interpolate(direction * speed, accel * delta)
