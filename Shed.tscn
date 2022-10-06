@@ -8,7 +8,7 @@
 [node name="Shed" type="Spatial"]
 
 [node name="FPS" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28048, 0.662271, -1.59494 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.28048, 0.55, -1.59494 )
 
 [node name="wall" parent="." instance=ExtResource( 7 )]
 transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
@@ -27,7 +27,12 @@ transform = Transform( 3.05, 0, 0, 0, 1, 0, 0, 0, 3.05, -0.05, 0, 0 )
 
 [node name="ceiling" parent="." instance=ExtResource( 1 )]
 transform = Transform( 3.05, 0, 0, 0, 1, 0, 0, 0, 3.05, -0.05, 1.292, 0 )
-visible = false
 
 [node name="lampRoundFloor" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.434, 0.0584329, -2.21243 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71367, 0.0445286, -0.230906 )
+
+[node name="lampRoundFloor2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.212751, 0.0445286, -0.230906 )
+
+[node name="lampRoundFloor3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71367, 0.0445286, -2.7505 )

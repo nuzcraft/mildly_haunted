@@ -55,6 +55,11 @@ jump={
  ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="world"
+3d_physics/layer_2="player"
+
 [physics]
 
 common/enable_pause_aware_picking=true
