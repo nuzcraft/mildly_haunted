@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://collision_models/wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://collision_models/floorFull.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://collision_models/wallDoorwayWide.tscn" type="PackedScene" id=5]
 [ext_resource path="res://collision_models/doorway.tscn" type="PackedScene" id=6]
 [ext_resource path="res://House.gd" type="Script" id=7]
+[ext_resource path="res://collision_models/doorwayFront.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -22,6 +23,62 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("doors/bathroom_door:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("doors/front_door:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "bathroom_door_close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("doors/bathroom_door:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.366022, 0.378929 ),
+"update": 0,
+"values": [ Vector3( 0, -15, 0 ), Vector3( 0, -90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "bathroom_door_open"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("doors/bathroom_door:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 2, 2.07053, 2 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -13, 0 ), Vector3( 0, -15, 0 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "bedroom_door_close"
@@ -34,7 +91,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 0.535887 ),
+"transitions": PoolRealArray( 0.31864, 0.535887 ),
 "update": 0,
 "values": [ Vector3( 0, 75, 0 ), Vector3( 0, 0, 0 ) ]
 }
@@ -50,9 +107,41 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"transitions": PoolRealArray( 1.93187, 2, 2 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 78, 0 ), Vector3( 0, 75, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "front_door_close"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("doors/front_door:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.31864, 0.392292 ),
+"update": 0,
+"values": [ Vector3( 0, 165, 0 ), Vector3( 0, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "front_door_open"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("doors/front_door:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 2, 2.07053, 2.07053 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 0, 168, 0 ), Vector3( 0, 165, 0 ) ]
 }
 
 [node name="House" type="Spatial"]
@@ -118,7 +207,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29171, 0.842306, -3.12378 )
 [node name="bedroom_door" parent="doors" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 0, -5 )
 
+[node name="bathroom_door" parent="doors" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.95, 0, -8.25 )
+
+[node name="front_door" parent="doors" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.05, 0, -0.75 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
+anims/bathroom_door_close = SubResource( 4 )
+anims/bathroom_door_open = SubResource( 5 )
 anims/bedroom_door_close = SubResource( 2 )
 anims/bedroom_door_open = SubResource( 3 )
+anims/front_door_close = SubResource( 7 )
+anims/front_door_open = SubResource( 6 )

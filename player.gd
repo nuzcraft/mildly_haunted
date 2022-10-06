@@ -19,6 +19,8 @@ var movement = Vector3()
 onready var head = $Head
 onready var camera = $Head/Camera
 
+var doors_open = false
+
 func _ready():
 	#hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -31,8 +33,16 @@ func _input(event):
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
 		
 	if Input.is_action_just_pressed("ui_accept"):
+		if not doors_open:
 			Events.emit_signal("bedroom_door_open")
-			print("signal emitted")
+#			Events.emit_signal("bathroom_door_open")
+#			Events.emit_signal("front_door_open")
+		else: 
+			Events.emit_signal("bedroom_door_close")
+			Events.emit_signal("bathroom_door_close")
+			Events.emit_signal("front_door_close")
+		doors_open = not doors_open
+	
 
 func _process(delta):
 	#camera physics interpolation to reduce physics jitter on high refresh-rate monitors
