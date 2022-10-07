@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://collision_models/wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://collision_models/floorFull.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://collision_models/doorway.tscn" type="PackedScene" id=6]
 [ext_resource path="res://House.gd" type="Script" id=7]
 [ext_resource path="res://collision_models/doorwayFront.tscn" type="PackedScene" id=8]
+[ext_resource path="res://collision_models/key.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -216,6 +217,15 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.95, 0
 
 [node name="front_door" parent="doors" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.05, 0, -0.75 )
+
+[node name="bedroom_key" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.05, -1 )
+
+[node name="bathroom_key" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.86976, 0.05, -6.53716 )
+
+[node name="front_key" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.49906, 0.05, -9.65275 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )

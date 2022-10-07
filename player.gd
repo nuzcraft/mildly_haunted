@@ -20,9 +20,9 @@ onready var head = $Head
 onready var camera = $Head/Camera
 onready var ray = $Head/Camera/RayCast
 
-var has_bedroom_key = true
-var has_bathroom_key = true
-var has_front_key = true
+var has_bedroom_key = false
+var has_bathroom_key = false
+var has_front_key = false
 
 func _ready():
 	#hides the cursor
@@ -38,6 +38,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if ray.is_colliding():
 			var collider = ray.get_collider()
+			print(collider)
 			if collider.is_in_group("bedroom_door"):
 				if has_bedroom_key:
 					Events.emit_signal("bedroom_door_open")
@@ -47,6 +48,15 @@ func _input(event):
 			if collider.is_in_group("front_door"):
 				if has_front_key:
 					Events.emit_signal("front_door_open")
+			if collider.name == "bedroom_key" or collider.is_in_group("bedroom_key"):
+				has_bedroom_key = true
+				collider.queue_free()
+			if collider.name == "bathroom_key" or collider.is_in_group("bathroom_key"):
+				has_bathroom_key = true
+				collider.queue_free()
+			if collider.name == "front_key" or collider.is_in_group("front_key"):
+				has_front_key = true
+				collider.queue_free()
 
 func _process(delta):
 	#camera physics interpolation to reduce physics jitter on high refresh-rate monitors
