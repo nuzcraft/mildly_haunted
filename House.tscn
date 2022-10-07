@@ -207,8 +207,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29171, 0.842306, -3.12378 )
 [node name="bedroom_door" parent="doors" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25, 0, -5 )
 
+[node name="KinematicBody" parent="doors/bedroom_door" index="0" groups=["bedroom_door"]]
+
 [node name="bathroom_door" parent="doors" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.95, 0, -8.25 )
+
+[node name="KinematicBody" parent="doors/bathroom_door" index="0" groups=["bathroom_door"]]
 
 [node name="front_door" parent="doors" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.05, 0, -0.75 )
@@ -221,3 +225,6 @@ anims/bedroom_door_close = SubResource( 2 )
 anims/bedroom_door_open = SubResource( 3 )
 anims/front_door_close = SubResource( 7 )
 anims/front_door_open = SubResource( 6 )
+
+[editable path="doors/bedroom_door"]
+[editable path="doors/bathroom_door"]

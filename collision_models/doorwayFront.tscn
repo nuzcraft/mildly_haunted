@@ -65,7 +65,7 @@ points = PoolVector3Array( 0, 0, -0.0891, 0, 0, -8.71718e-06, 0, 1.00953, -0.089
 
 [node name="doorwayFront" instance=ExtResource( 1 )]
 
-[node name="KinematicBody" type="KinematicBody" parent="." index="0"]
+[node name="KinematicBody" type="KinematicBody" parent="." index="0" groups=["front_door"]]
 
 [node name="doorwayFront(Clone)" type="MeshInstance" parent="KinematicBody" index="0"]
 mesh = SubResource( 1 )

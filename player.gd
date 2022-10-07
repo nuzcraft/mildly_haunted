@@ -18,8 +18,11 @@ var movement = Vector3()
 
 onready var head = $Head
 onready var camera = $Head/Camera
+onready var ray = $Head/Camera/RayCast
 
-var doors_open = false
+var has_bedroom_key = true
+var has_bathroom_key = true
+var has_front_key = true
 
 func _ready():
 	#hides the cursor
@@ -32,17 +35,18 @@ func _input(event):
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sense))
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
 		
-	if Input.is_action_just_pressed("ui_accept"):
-		if not doors_open:
-			Events.emit_signal("bedroom_door_open")
-#			Events.emit_signal("bathroom_door_open")
-#			Events.emit_signal("front_door_open")
-		else: 
-			Events.emit_signal("bedroom_door_close")
-			Events.emit_signal("bathroom_door_close")
-			Events.emit_signal("front_door_close")
-		doors_open = not doors_open
-	
+	if event is InputEventMouseButton:
+		if ray.is_colliding():
+			var collider = ray.get_collider()
+			if collider.is_in_group("bedroom_door"):
+				if has_bedroom_key:
+					Events.emit_signal("bedroom_door_open")
+			if collider.is_in_group("bathroom_door"):
+				if has_bathroom_key:
+					Events.emit_signal("bathroom_door_open")
+			if collider.is_in_group("front_door"):
+				if has_front_key:
+					Events.emit_signal("front_door_open")
 
 func _process(delta):
 	#camera physics interpolation to reduce physics jitter on high refresh-rate monitors
