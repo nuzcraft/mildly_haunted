@@ -32,4 +32,4 @@ fov = 90.0
 
 [node name="RayCast" type="RayCast" parent="Head/Camera"]
 enabled = true
-cast_to = Vector3( 0, 0, -1 )
+cast_to = Vector3( 0, 0, -0.5 )
