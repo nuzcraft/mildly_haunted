@@ -16,13 +16,20 @@ var velocity = Vector3()
 var gravity_vec = Vector3()
 var movement = Vector3()
 
-onready var head = $Head
-onready var camera = $Head/Camera
-onready var ray = $Head/Camera/RayCast
+onready var head := $Head
+onready var camera := $Head/Camera
+onready var ray := $Head/Camera/RayCast
+onready var message := $Message
+onready var messageTimer := $MessageTimer
+onready var animationPlayer := $AnimationPlayer
 
 var has_bedroom_key = false
 var has_bathroom_key = false
 var has_front_key = false
+
+var bedroom_door_open = false
+var bathroom_door_open = false
+var front_door_open = false
 
 func _ready():
 	#hides the cursor
@@ -35,28 +42,43 @@ func _input(event):
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sense))
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
 		
-	if event is InputEventMouseButton:
+	if Input.is_action_just_pressed("select"):
 		if ray.is_colliding():
 			var collider = ray.get_collider()
 			print(collider)
 			if collider.is_in_group("bedroom_door"):
-				if has_bedroom_key:
-					Events.emit_signal("bedroom_door_open")
+				if not bedroom_door_open:
+					if has_bedroom_key:
+						Events.emit_signal("bedroom_door_open")
+						bedroom_door_open = true
+					else:
+						set_message("bedroom door locked")
 			if collider.is_in_group("bathroom_door"):
-				if has_bathroom_key:
-					Events.emit_signal("bathroom_door_open")
+				if not bathroom_door_open:
+					if has_bathroom_key:
+						Events.emit_signal("bathroom_door_open")
+						bathroom_door_open = true
+					else:
+						set_message("bathroom door locked")
 			if collider.is_in_group("front_door"):
-				if has_front_key:
-					Events.emit_signal("front_door_open")
+				if not front_door_open:
+					if has_front_key:
+						Events.emit_signal("front_door_open")
+						front_door_open = true
+					else:
+						set_message("front door locked")
 			if collider.name == "bedroom_key" or collider.is_in_group("bedroom_key"):
 				has_bedroom_key = true
 				collider.queue_free()
+				set_message("found the bedroom key")
 			if collider.name == "bathroom_key" or collider.is_in_group("bathroom_key"):
 				has_bathroom_key = true
 				collider.queue_free()
+				set_message("found the bathroom key")
 			if collider.name == "front_key" or collider.is_in_group("front_key"):
 				has_front_key = true
 				collider.queue_free()
+				set_message("found the front door key")
 
 func _process(delta):
 	#camera physics interpolation to reduce physics jitter on high refresh-rate monitors
@@ -97,5 +119,15 @@ func _physics_process(delta):
 	
 	move_and_slide_with_snap(movement, snap, Vector3.UP)
 	
+func set_message(text):
+	if messageTimer.time_left > 0:
+		yield(messageTimer, "timeout")
+	if animationPlayer.is_playing():
+		yield(animationPlayer, "animation_finished")
+	message.text = text
+	messageTimer.wait_time = 3
+	messageTimer.start()
+	animationPlayer.play("Message_FadeIn")
 	
-	
+func _on_MessageTimer_timeout():
+	animationPlayer.play("Message_FadeOut")

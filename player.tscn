@@ -1,12 +1,100 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://textures/crosshair.png" type="Texture" id=2]
+[ext_resource path="res://rainyhearts.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
 
 [sub_resource type="CapsuleMesh" id=2]
 radius = 0.5
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Message_FadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Message:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 2.54912, 1.03527 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Message:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1.56917, 0.615572 ),
+"update": 0,
+"values": [ Vector2( 89.5, 210 ), Vector2( 89.5, 193.5 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Message_FadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Message:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1.86607, 0.594604 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Message:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1.51572, 0.535887 ),
+"update": 0,
+"values": [ Vector2( 89.5, 193.5 ), Vector2( 89.5, 210 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Message:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Message:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 89.5, 193.5 ) ]
+}
 
 [node name="player" type="KinematicBody"]
 collision_layer = 2
@@ -32,4 +120,42 @@ fov = 90.0
 
 [node name="RayCast" type="RayCast" parent="Head/Camera"]
 enabled = true
-cast_to = Vector3( 0, 0, -1.2 )
+cast_to = Vector3( 0, 0, -0.9 )
+
+[node name="Crosshair" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 2 )
+
+[node name="Message" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -70.5
+margin_top = -46.5
+margin_right = 70.5
+margin_bottom = -31.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 3 )
+text = "found the bedroom key"
+align = 1
+valign = 1
+
+[node name="MessageTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Message_FadeIn = SubResource( 4 )
+anims/Message_FadeOut = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
