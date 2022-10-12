@@ -12,7 +12,7 @@ I've not had the motivation to work on this the last few days. I don't know what
 
 #### TODO
 
-- [ ] hide cursor unless hovering over interactable object
+- [x] hide cursor unless hovering over interactable object
 - [ ] ability to screenshake
 - [ ] add first batch of sounds
   - [ ] door creak

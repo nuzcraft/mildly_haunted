@@ -51,7 +51,7 @@ surfaces/1 = {
 
 [node name="doorway" instance=ExtResource( 1 )]
 
-[node name="KinematicBody" type="KinematicBody" parent="." index="0"]
+[node name="KinematicBody" type="KinematicBody" parent="." index="0" groups=["interactable"]]
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody" index="0"]
 shape = SubResource( 3 )
