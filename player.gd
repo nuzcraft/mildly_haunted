@@ -80,6 +80,7 @@ func _input(event):
 				has_front_key = true
 				collider.queue_free()
 				set_message("found the front door key")
+				camera.add_shake(.25)
 
 func _process(delta):
 	#camera physics interpolation to reduce physics jitter on high refresh-rate monitors
@@ -125,8 +126,8 @@ func _physics_process(delta):
 func set_message(text):
 	if messageTimer.time_left > 0:
 		yield(messageTimer, "timeout")
-	if animationPlayer.is_playing():
-		yield(animationPlayer, "animation_finished")
+#	if animationPlayer.is_playing():
+#		yield(animationPlayer, "animation_finished")
 	message.text = text
 	messageTimer.wait_time = 3
 	messageTimer.start()

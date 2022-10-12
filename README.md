@@ -13,7 +13,8 @@ I've not had the motivation to work on this the last few days. I don't know what
 #### TODO
 
 - [x] hide cursor unless hovering over interactable object
-- [ ] ability to screenshake
+- [x] ability to screenshake
+  - [ ] fix up messages when picking up keys related to hiding the cursor
 - [ ] add first batch of sounds
   - [ ] door creak
   - [ ] background 'music'

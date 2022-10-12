@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://textures/crosshair.png" type="Texture" id=2]
 [ext_resource path="res://rainyhearts.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://ShakeCamera.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -199,6 +200,7 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.308487, 0 )
 [node name="Camera" type="Camera" parent="Head"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 fov = 90.0
+script = ExtResource( 4 )
 
 [node name="RayCast" type="RayCast" parent="Head/Camera"]
 enabled = true
