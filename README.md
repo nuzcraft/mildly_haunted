@@ -9,3 +9,8 @@ Initital prototyping has gone swimmingly. I have an environment, using 3d models
 ### 2022.10.12
 
 I've not had the motivation to work on this the last few days. I don't know what the 'game' actually is, just these bits that I've cobbled together. I'm going to try to make a TODO list to see if that will help my motivation and spur some inspiration to put some finishing touches on it.
+
+#### TODO
+
+[ ] todo item 1
+[ ] todo item 2
