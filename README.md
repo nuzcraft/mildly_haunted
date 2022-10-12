@@ -2,6 +2,11 @@
 
 Spooky first person adventure for Game Dev Field Guide Monthly Jam 21
 
+programming - nuzcraft
+3d models - Kenney
+Sounds - Kenney
+Music - Juhani Junkala
+
 ## Devlog
 
 Initital prototyping has gone swimmingly. I have an environment, using 3d models from Kenney that's starting to take shape. I took some tips from Miziziziziz on making the ps1-ish style, and it's turning out pretty well.
@@ -14,14 +19,14 @@ I've not had the motivation to work on this the last few days. I don't know what
 
 - [x] hide cursor unless hovering over interactable object
 - [x] ability to screenshake
-  - [ ] fix up messages when picking up keys related to hiding the cursor
-- [ ] add first batch of sounds
-  - [ ] door creak
-  - [ ] background 'music'
-  - [ ] pick up key sound
-  - [ ] unlock door sound
-  - [ ] door slam
-  - [ ] player footsteps?
+  - [x] fix up messages when picking up keys related to hiding the cursor
+- [x] add first batch of sounds
+  - [x] door creak
+  - [x] background 'music'
+  - [x] pick up key sound
+  - [x] unlock door sound
+  - [x] door slam
+  - [x] occassional creak
 - [ ] bathroom decor
   - [ ] tub
   - [ ] shower
