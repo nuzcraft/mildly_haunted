@@ -12,5 +12,5 @@ I've not had the motivation to work on this the last few days. I don't know what
 
 #### TODO
 
-[ ] todo item 1
-[ ] todo item 2
+- [ ] todo item 1
+- [ ] todo item 2
