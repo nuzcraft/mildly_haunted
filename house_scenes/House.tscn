@@ -154,7 +154,6 @@ panorama = ExtResource( 5 )
 [sub_resource type="Environment" id=9]
 background_mode = 2
 background_sky = SubResource( 8 )
-background_energy = 0.25
 
 [node name="House" type="Spatial"]
 script = ExtResource( 9 )
