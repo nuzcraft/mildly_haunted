@@ -12,5 +12,19 @@ I've not had the motivation to work on this the last few days. I don't know what
 
 #### TODO
 
-- [ ] todo item 1
-- [ ] todo item 2
+- [ ] hide cursor unless hovering over interactable object
+- [ ] ability to screenshake
+- [ ] add first batch of sounds
+  - [ ] door creak
+  - [ ] background 'music'
+  - [ ] pick up key sound
+  - [ ] unlock door sound
+  - [ ] door slam
+  - [ ] player footsteps?
+- [ ] bathroom decor
+  - [ ] tub
+  - [ ] shower
+  - [ ] toilet
+  - [ ] sinks
+  - [ ] lights
+- [ ] hide front key in bathroom
