@@ -34,3 +34,4 @@ I've not had the motivation to work on this the last few days. I don't know what
   - [x] sinks
   - [x] lights
 - [x] hide front key in bathroom
+- [x] vignette
