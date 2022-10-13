@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://collision_models/doorwayFront.tscn" type="PackedScene" id=1]
 [ext_resource path="res://collision_models/key.tscn" type="PackedScene" id=2]
@@ -15,6 +15,11 @@
 [ext_resource path="res://SoundPlayer.tscn" type="PackedScene" id=13]
 [ext_resource path="res://collision_models/shower.tscn" type="PackedScene" id=14]
 [ext_resource path="res://collision_models/bathtub.tscn" type="PackedScene" id=15]
+[ext_resource path="res://models/bathroomCabinet.glb" type="PackedScene" id=16]
+[ext_resource path="res://models/lampWall.glb" type="PackedScene" id=17]
+[ext_resource path="res://collision_models/bathroomCabinetDrawer.tscn" type="PackedScene" id=18]
+[ext_resource path="res://collision_models/toilet.tscn" type="PackedScene" id=19]
+[ext_resource path="res://collision_models/wallWindowSlide.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -157,35 +162,42 @@ panorama = ExtResource( 5 )
 [sub_resource type="Environment" id=9]
 background_mode = 2
 background_sky = SubResource( 8 )
+ambient_light_sky_contribution = 0.25
 
 [node name="House" type="Spatial"]
 script = ExtResource( 9 )
 
 [node name="floor" parent="." instance=ExtResource( 3 )]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
 
 [node name="ceiling" parent="." instance=ExtResource( 3 )]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 1.23898, 0 )
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 10, 0, 1.23898, 0 )
 
 [node name="outer_walls" type="Node" parent="."]
 
 [node name="wall" parent="outer_walls" instance=ExtResource( 7 )]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="wall2" parent="outer_walls" instance=ExtResource( 7 )]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.95 )
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.95 )
 
 [node name="wall3" parent="outer_walls" instance=ExtResource( 7 )]
 transform = Transform( -4.37114e-07, 0, 1, 0, 1, 0, -10, 0, -4.37114e-08, 0, 0, 0 )
 
 [node name="wall4" parent="outer_walls" instance=ExtResource( 7 )]
-transform = Transform( -3.73732e-07, 0, 1, 0, 1, 0, -8.55, 0, -4.37114e-08, 10, 0, -1.45 )
+transform = Transform( -2.64454e-07, 0, 1, 0, 1, 0, -6.05, 0, -4.37114e-08, 8, 0, -1.45 )
+
+[node name="wall6" parent="outer_walls" instance=ExtResource( 7 )]
+transform = Transform( -6.77527e-08, 0, 1, 0, 1, 0, -1.55, 0, -4.37114e-08, 8, 0, -8.45 )
 
 [node name="wall5" parent="outer_walls" instance=ExtResource( 7 )]
-transform = Transform( -2.40413e-08, 0, 1, 0, 1, 0, -0.55, 0, -4.37114e-08, 10, 0, 0 )
+transform = Transform( -2.40413e-08, 0, 1, 0, 1, 0, -0.55, 0, -4.37114e-08, 8, 0, 0 )
 
 [node name="wallDoorway" parent="outer_walls" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 0, -0.5 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, -0.5 )
+
+[node name="wallWindowSlide" parent="outer_walls" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, -7.5 )
 
 [node name="inner_walls" type="Node" parent="."]
 
@@ -202,7 +214,7 @@ transform = Transform( -6.77527e-08, 0, 1, 0, 1, 0, -1.55, 0, -4.37114e-08, 4, 0
 transform = Transform( -6.77527e-08, 0, 1, 0, 1, 0, -1.55, 0, -4.37114e-08, 6, 0, -8.45 )
 
 [node name="wall3" parent="inner_walls" instance=ExtResource( 7 )]
-transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6 )
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6 )
 
 [node name="wall4" parent="inner_walls" instance=ExtResource( 7 )]
 transform = Transform( -6.77527e-08, 0, 1, 0, 1, 0, -1.55, 0, -4.37114e-08, 6, 0, -6 )
@@ -224,7 +236,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.95, 0
 [node name="KinematicBody" parent="doors/bathroom_door" index="0" groups=["bathroom_door"]]
 
 [node name="front_door" parent="doors" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.05, 0, -0.75 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.05, 0, -0.75 )
 
 [node name="bedroom_door_pivot" type="Spatial" parent="doors"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.76, 0, -5 )
@@ -243,7 +255,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.05, -1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.86976, 0.05, -6.53716 )
 
 [node name="front_key" parent="keys" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.61451, 0.193332, -8.33234 )
+transform = Transform( 0.213057, -0.130415, -0.00992726, 0, 0.0189753, -0.249279, 0.130792, 0.212443, 0.0161713, 6.97563, 0.585421, -6.35487 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
@@ -283,10 +295,45 @@ omni_shadow_mode = 0
 [node name="bathroom" type="Node" parent="."]
 
 [node name="shower" parent="bathroom" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.83149, 0.0500001, -9.33055 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.85239, 0.0500001, -9.33055 )
 
 [node name="bathtub" parent="bathroom" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.87748, 0.0499999, -9.33455 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.02509, 0.0499999, -9.33455 )
+
+[node name="bathroomCabinetDrawer" parent="bathroom" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.61129, 0.113711, -6.5051 )
+
+[node name="bathroomCabinetDrawer2" parent="bathroom" instance=ExtResource( 18 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.36876, 0.113711, -6.5051 )
+
+[node name="bathroomCabinet" parent="bathroom" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.71686, 0.792563, -6.2672 )
+
+[node name="bathroomCabinet2" parent="bathroom" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.46477, 0.792563, -6.2672 )
+
+[node name="lampWall" parent="bathroom" instance=ExtResource( 17 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.76091, 0.988763, -6.055 )
+
+[node name="OmniLight" type="OmniLight" parent="bathroom/lampWall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00304461, 0.0829655, 0.0894384 )
+shadow_enabled = true
+shadow_bias = 0.2
+omni_range = 1.5
+omni_attenuation = 2.73208
+
+[node name="lampWall2" parent="bathroom" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.867, 0.989, -9.95 )
+
+[node name="OmniLight" type="OmniLight" parent="bathroom/lampWall2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00304461, 0.0829655, 0.0894384 )
+shadow_enabled = true
+shadow_bias = 0.2
+omni_range = 1.5
+omni_attenuation = 2.73208
+
+[node name="toilet" parent="bathroom" instance=ExtResource( 19 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.85794, 0.05, -6.09426 )
 
 [connection signal="timeout" from="CreakTimer" to="." method="_on_CreakTimer_timeout"]
 

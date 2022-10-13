@@ -27,10 +27,10 @@ I've not had the motivation to work on this the last few days. I don't know what
   - [x] unlock door sound
   - [x] door slam
   - [x] occassional creak
-- [ ] bathroom decor
-  - [ ] tub
-  - [ ] shower
-  - [ ] toilet
-  - [ ] sinks
-  - [ ] lights
-- [ ] hide front key in bathroom
+- [x] bathroom decor
+  - [x] tub
+  - [x] shower
+  - [x] toilet
+  - [x] sinks
+  - [x] lights
+- [x] hide front key in bathroom

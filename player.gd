@@ -53,6 +53,7 @@ func _input(event):
 					if has_bedroom_key:
 						Events.emit_signal("bedroom_door_open")
 						bedroom_door_open = true
+						collider.remove_from_group("interactable")
 					else:
 						set_message("bedroom door locked")
 						SoundPlayer.play_sound(SoundPlayer.DOOR_LOCKED)
@@ -61,6 +62,7 @@ func _input(event):
 					if has_bathroom_key:
 						Events.emit_signal("bathroom_door_open")
 						bathroom_door_open = true
+						collider.remove_from_group("interactable")
 					else:
 						set_message("bathroom door locked")
 						SoundPlayer.play_sound(SoundPlayer.DOOR_LOCKED)
@@ -69,6 +71,7 @@ func _input(event):
 					if has_front_key:
 						Events.emit_signal("front_door_open")
 						front_door_open = true
+						collider.remove_from_group("interactable")
 					else:
 						set_message("front door locked")
 						SoundPlayer.play_sound(SoundPlayer.DOOR_LOCKED)

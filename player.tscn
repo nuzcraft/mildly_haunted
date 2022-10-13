@@ -1,15 +1,40 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://textures/crosshair.png" type="Texture" id=2]
 [ext_resource path="res://rainyhearts.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://ShakeCamera.gd" type="Script" id=4]
+[ext_resource path="res://textures/white.png" type="Texture" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
 
 [sub_resource type="CapsuleMesh" id=2]
 radius = 0.5
+
+[sub_resource type="Shader" id=14]
+code = "shader_type canvas_item;
+uniform vec2 player_position;
+uniform vec4 color : hint_color = vec4(0.305, 0.298, 0.341,1);
+
+uniform float MULTIPLIER = 0.56;
+uniform float SCALE = 0.5;
+uniform float SOFTNESS = 0.45;
+
+void fragment(){
+	float val = distance(vec2(UV.x , UV.y * MULTIPLIER), vec2(player_position.x , player_position.y * MULTIPLIER));
+	val = val / SCALE;
+	float vignette = smoothstep(0.2, SOFTNESS, val);
+	COLOR = vec4(color.rgb , vignette );
+}"
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = SubResource( 14 )
+shader_param/player_position = Vector2( 0.5, 0.5 )
+shader_param/color = Color( 0, 0, 0, 1 )
+shader_param/MULTIPLIER = 0.8
+shader_param/SCALE = 0.8
+shader_param/SOFTNESS = 0.8
 
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 3 )
@@ -381,6 +406,13 @@ margin_top = -8.0
 margin_right = 8.0
 margin_bottom = 8.0
 texture = ExtResource( 2 )
+
+[node name="Vignette" type="TextureRect" parent="."]
+material = SubResource( 15 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
 
 [node name="Message" type="Label" parent="."]
 modulate = Color( 1, 1, 1, 0 )
