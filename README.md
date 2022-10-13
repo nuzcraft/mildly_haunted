@@ -41,16 +41,16 @@ I've not had the motivation to work on this the last few days. I don't know what
 Yesterday was a mega success, both because of the TODO list and because I gave myself time to focus on the project. Not sure I'll get the time today, but I will put together the TODO list
 
 - [ ] bedroom decor
-  - [ ] bed
-  - [ ] end tables
-  - [ ] wall lights
-  - [ ] dresser
-  - [ ] chair?
-  - [ ] lamp
+  - [x] bed
+  - [x] end tables
+  - [x] wall lights
+  - [x] dresser
+  - [x] chair?
+  - [x] lamp
   - [ ] ceiling fan
-  - [ ] bookshelf
-- [ ] adjust room sizes
-- [ ] hide bedroom key in bedroom
+  - [x] bookshelf
+- [x] adjust room sizes
+- [x] hide bedroom key in bedroom
 - [ ] hallway decor
   - [ ] washer/dryer?
   - [ ] bookshelf?

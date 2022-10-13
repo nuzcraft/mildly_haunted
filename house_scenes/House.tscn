@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://collision_models/doorwayFront.tscn" type="PackedScene" id=1]
 [ext_resource path="res://collision_models/key.tscn" type="PackedScene" id=2]
@@ -20,6 +20,15 @@
 [ext_resource path="res://collision_models/bathroomCabinetDrawer.tscn" type="PackedScene" id=18]
 [ext_resource path="res://collision_models/toilet.tscn" type="PackedScene" id=19]
 [ext_resource path="res://collision_models/wallWindowSlide.tscn" type="PackedScene" id=20]
+[ext_resource path="res://collision_models/bedDouble.tscn" type="PackedScene" id=21]
+[ext_resource path="res://collision_models/cabinetBedDrawer.tscn" type="PackedScene" id=22]
+[ext_resource path="res://models/lampRoundTable.glb" type="PackedScene" id=23]
+[ext_resource path="res://collision_models/bookcaseClosedDoors.tscn" type="PackedScene" id=24]
+[ext_resource path="res://collision_models/cabinetBed.tscn" type="PackedScene" id=25]
+[ext_resource path="res://models/books.glb" type="PackedScene" id=26]
+[ext_resource path="res://collision_models/bookcaseClosedWide.tscn" type="PackedScene" id=27]
+[ext_resource path="res://models/lampSquareFloor.glb" type="PackedScene" id=28]
+[ext_resource path="res://collision_models/loungeChair.tscn" type="PackedScene" id=29]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -168,10 +177,10 @@ ambient_light_sky_contribution = 0.25
 script = ExtResource( 9 )
 
 [node name="floor" parent="." instance=ExtResource( 3 )]
-transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 9, 0, 0, 0 )
 
 [node name="ceiling" parent="." instance=ExtResource( 3 )]
-transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 10, 0, 1.23898, 0 )
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 9, 0, 1.23898, 0 )
 
 [node name="outer_walls" type="Node" parent="."]
 
@@ -179,16 +188,16 @@ transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 10, 0, 1.23898, 0 )
 transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="wall2" parent="outer_walls" instance=ExtResource( 7 )]
-transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.95 )
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.95 )
 
 [node name="wall3" parent="outer_walls" instance=ExtResource( 7 )]
 transform = Transform( -4.37114e-07, 0, 1, 0, 1, 0, -10, 0, -4.37114e-08, 0, 0, 0 )
 
 [node name="wall4" parent="outer_walls" instance=ExtResource( 7 )]
-transform = Transform( -2.64454e-07, 0, 1, 0, 1, 0, -6.05, 0, -4.37114e-08, 8, 0, -1.45 )
+transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -5, 0, -4.37114e-08, 8, 0, -1.45 )
 
 [node name="wall6" parent="outer_walls" instance=ExtResource( 7 )]
-transform = Transform( -6.77527e-08, 0, 1, 0, 1, 0, -1.55, 0, -4.37114e-08, 8, 0, -8.45 )
+transform = Transform( -6.77527e-08, 0, 1, 0, 1, 0, -1.55, 0, -4.37114e-08, 8, 0, -7.37338 )
 
 [node name="wall5" parent="outer_walls" instance=ExtResource( 7 )]
 transform = Transform( -2.40413e-08, 0, 1, 0, 1, 0, -0.55, 0, -4.37114e-08, 8, 0, 0 )
@@ -197,7 +206,7 @@ transform = Transform( -2.40413e-08, 0, 1, 0, 1, 0, -0.55, 0, -4.37114e-08, 8, 0
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, -0.5 )
 
 [node name="wallWindowSlide" parent="outer_walls" instance=ExtResource( 20 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, -7.5 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, -6.40795 )
 
 [node name="inner_walls" type="Node" parent="."]
 
@@ -205,33 +214,30 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8, 0, -
 transform = Transform( 3.05, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5 )
 
 [node name="wall2" parent="inner_walls" instance=ExtResource( 7 )]
-transform = Transform( -1.11464e-07, 0, 1, 0, 1, 0, -2.55, 0, -4.37114e-08, 4, 0, -5 )
-
-[node name="wall5" parent="inner_walls" instance=ExtResource( 7 )]
-transform = Transform( -6.77527e-08, 0, 1, 0, 1, 0, -1.55, 0, -4.37114e-08, 4, 0, -8.45 )
+transform = Transform( 0, 0, 1, 0, 1, 0, -2, 0, 0, 4, 0, -5 )
 
 [node name="wall6" parent="inner_walls" instance=ExtResource( 7 )]
-transform = Transform( -6.77527e-08, 0, 1, 0, 1, 0, -1.55, 0, -4.37114e-08, 6, 0, -8.45 )
+transform = Transform( -2.84124e-08, 0, 1, 0, 1, 0, -0.65, 0, -4.37114e-08, 6, 0, -7.3 )
 
 [node name="wall3" parent="inner_walls" instance=ExtResource( 7 )]
 transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6 )
 
 [node name="wall4" parent="inner_walls" instance=ExtResource( 7 )]
-transform = Transform( -6.77527e-08, 0, 1, 0, 1, 0, -1.55, 0, -4.37114e-08, 6, 0, -6 )
+transform = Transform( -2.40413e-08, 0, 1, 0, 1, 0, -0.55, 0, -4.37114e-08, 6, 0, -6 )
 
 [node name="wallDoorway" parent="inner_walls" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5 )
 
 [node name="wallDoorwayWide" parent="inner_walls" instance=ExtResource( 8 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, -7.5 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, -6.95057 )
 
 [node name="wallDoorway2" parent="inner_walls" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, -7.5 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, -6.35 )
 
 [node name="doors" type="Node" parent="."]
 
 [node name="bathroom_door" parent="doors" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.95, 0, -8.25 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.95, 0, -7.09275 )
 
 [node name="KinematicBody" parent="doors/bathroom_door" index="0" groups=["bathroom_door"]]
 
@@ -249,7 +255,7 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -
 [node name="keys" type="Node" parent="."]
 
 [node name="bedroom_key" parent="keys" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.05, -1 )
+transform = Transform( 0.178303, 0, 0.175237, 0, 0.25, 0, -0.175237, 0, 0.178303, 2.08103, 0.599722, -5.30124 )
 
 [node name="bathroom_key" parent="keys" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.86976, 0.05, -6.53716 )
@@ -288,17 +294,13 @@ omni_range = 2.5
 omni_attenuation = 1.8025
 omni_shadow_mode = 0
 
-[node name="SoundPlayer" parent="." instance=ExtResource( 13 )]
-
-[node name="CreakTimer" type="Timer" parent="."]
-
 [node name="bathroom" type="Node" parent="."]
 
 [node name="shower" parent="bathroom" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.85239, 0.0500001, -9.33055 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.852, 0.05, -7.331 )
 
 [node name="bathtub" parent="bathroom" instance=ExtResource( 15 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.02509, 0.0499999, -9.33455 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.025, 0.05, -7.335 )
 
 [node name="bathroomCabinetDrawer" parent="bathroom" instance=ExtResource( 18 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.61129, 0.113711, -6.5051 )
@@ -323,7 +325,7 @@ omni_range = 1.5
 omni_attenuation = 2.73208
 
 [node name="lampWall2" parent="bathroom" instance=ExtResource( 17 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.867, 0.989, -9.95 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.867, 0.989, -7.95 )
 
 [node name="OmniLight" type="OmniLight" parent="bathroom/lampWall2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00304461, 0.0829655, 0.0894384 )
@@ -334,6 +336,100 @@ omni_attenuation = 2.73208
 
 [node name="toilet" parent="bathroom" instance=ExtResource( 19 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.85794, 0.05, -6.09426 )
+
+[node name="bedroom" type="Node" parent="."]
+
+[node name="bedDouble" parent="bedroom" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.05, -6.8 )
+
+[node name="cabinetBedDrawer" parent="bedroom" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.575, 0.05, -7.713 )
+
+[node name="lampRoundTable" parent="bedroom/cabinetBedDrawer" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0620058, 0.26197, -0.0484209 )
+
+[node name="OmniLight" type="OmniLight" parent="bedroom/cabinetBedDrawer/lampRoundTable"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576746, 0.158699, -0.0571041 )
+shadow_enabled = true
+shadow_bias = 0.01
+omni_range = 1.5
+omni_attenuation = 2.73208
+
+[node name="cabinetBedDrawer2" parent="bedroom" instance=ExtResource( 22 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.116, 0.05, -7.713 )
+
+[node name="lampRoundTable" parent="bedroom/cabinetBedDrawer2" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0620058, 0.26197, -0.0484209 )
+
+[node name="OmniLight" type="OmniLight" parent="bedroom/cabinetBedDrawer2/lampRoundTable"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576746, 0.158699, -0.0571041 )
+shadow_enabled = true
+shadow_bias = 0.01
+omni_range = 1.5
+omni_attenuation = 2.73208
+
+[node name="bookcaseClosedDoors" parent="bedroom" instance=ExtResource( 24 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.67854, 0.05, -6.69197 )
+
+[node name="bookcaseClosedDoors2" parent="bedroom" instance=ExtResource( 24 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.67854, 0.05, -6.14934 )
+
+[node name="bookcaseClosedWide" parent="bedroom" instance=ExtResource( 27 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.16967, 0.05, -5.35102 )
+
+[node name="books" parent="bedroom/bookcaseClosedWide" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0494916, 0.555082, -0.08565 )
+
+[node name="books2" parent="bedroom/bookcaseClosedWide" instance=ExtResource( 26 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.556503, 0.0726191, -0.0872159 )
+
+[node name="cabinetBed" parent="bedroom" instance=ExtResource( 25 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.338879, 0.05, -5.96751 )
+
+[node name="lampRoundTable" parent="bedroom/cabinetBed" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0620058, 0.26197, -0.0484209 )
+
+[node name="OmniLight" type="OmniLight" parent="bedroom/cabinetBed/lampRoundTable"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576746, 0.158699, -0.0571041 )
+shadow_enabled = true
+shadow_bias = 0.01
+omni_range = 1.5
+omni_attenuation = 2.73208
+
+[node name="loungeChair" parent="bedroom" instance=ExtResource( 29 )]
+transform = Transform( -0.759374, 0, 0.650655, 0, 1, 0, -0.650655, 0, -0.759374, 0.818644, 0.05, -5.51 )
+
+[node name="lampSquareFloor" parent="bedroom" instance=ExtResource( 28 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.963196, 0.05, -5.26863 )
+
+[node name="OmniLight" type="OmniLight" parent="bedroom/lampSquareFloor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576744, 0.140008, -0.0571041 )
+shadow_enabled = true
+shadow_bias = 0.01
+omni_range = 1.5
+omni_attenuation = 2.73208
+
+[node name="OmniLight2" type="OmniLight" parent="bedroom/lampSquareFloor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576744, 0.849813, -0.0571041 )
+shadow_enabled = true
+shadow_bias = 0.01
+omni_range = 1.5
+omni_attenuation = 2.73208
+
+[node name="ceilingFan" parent="bedroom" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.959, 1.239, -6.846 )
+
+[node name="OmniLight" type="OmniLight" parent="bedroom/ceilingFan"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.146912, 0 )
+shadow_enabled = true
+shadow_bias = 0.01
+omni_range = 2.5
+omni_attenuation = 1.8025
+omni_shadow_mode = 0
+
+[node name="SoundPlayer" parent="." instance=ExtResource( 13 )]
+
+[node name="CreakTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="CreakTimer" to="." method="_on_CreakTimer_timeout"]
 
