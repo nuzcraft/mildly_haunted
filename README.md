@@ -47,12 +47,12 @@ Yesterday was a mega success, both because of the TODO list and because I gave m
   - [x] dresser
   - [x] chair?
   - [x] lamp
-  - [ ] ceiling fan
+  - [x] ceiling fan
   - [x] bookshelf
 - [x] adjust room sizes
 - [x] hide bedroom key in bedroom
-- [ ] hallway decor
-  - [ ] washer/dryer?
-  - [ ] bookshelf?
-  - [ ] wall light?
-  - [ ] remove this section?
+- [x] hallway decor
+  - [x] washer/dryer?
+  - [x] bookshelf?
+  - [x] wall light?
+- [ ] windows in bedroom
