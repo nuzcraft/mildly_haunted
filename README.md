@@ -55,4 +55,4 @@ Yesterday was a mega success, both because of the TODO list and because I gave m
   - [x] washer/dryer?
   - [x] bookshelf?
   - [x] wall light?
-- [ ] windows in bedroom
+- [x] windows in bedroom
