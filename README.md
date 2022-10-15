@@ -56,3 +56,7 @@ Yesterday was a mega success, both because of the TODO list and because I gave m
   - [x] bookshelf?
   - [x] wall light?
 - [x] windows in bedroom
+
+### 2022.10.15
+
+Sweet, let's try this again with the kitchen :)
