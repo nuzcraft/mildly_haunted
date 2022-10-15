@@ -382,6 +382,7 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 0.4, 0, 0, 0, -1.74846e-08, -0.6, 0, 0.4, -2.62268e-08, 0, 0, 0 )
+cast_shadow = 0
 mesh = SubResource( 2 )
 
 [node name="Head" type="Spatial" parent="."]
