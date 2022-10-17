@@ -40,7 +40,7 @@ I've not had the motivation to work on this the last few days. I don't know what
 
 Yesterday was a mega success, both because of the TODO list and because I gave myself time to focus on the project. Not sure I'll get the time today, but I will put together the TODO list
 
-- [ ] bedroom decor
+- [x] bedroom decor
   - [x] bed
   - [x] end tables
   - [x] wall lights
@@ -60,3 +60,16 @@ Yesterday was a mega success, both because of the TODO list and because I gave m
 ### 2022.10.15
 
 Sweet, let's try this again with the kitchen :)
+
+- [ ] fridge
+- [ ] stove
+- [ ] sink
+- [ ] countertops
+- [ ] top cabinets
+- [ ] undercabinet lighting
+- [ ] kitchen lights
+- [ ] dining table
+- [ ] chairs
+- [ ] light fixture
+- [ ] pizza
+- [ ] drinks
