@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://collision_models/doorwayFront.tscn" type="PackedScene" id=1]
 [ext_resource path="res://collision_models/key.tscn" type="PackedScene" id=2]
@@ -46,6 +46,10 @@
 [ext_resource path="res://models/sodaBottle.glb" type="PackedScene" id=44]
 [ext_resource path="res://models/pizzaBox.glb" type="PackedScene" id=45]
 [ext_resource path="res://models/sodaCanCrushed.glb" type="PackedScene" id=46]
+[ext_resource path="res://models/televisionModern.glb" type="PackedScene" id=47]
+[ext_resource path="res://collision_models/tableCross.tscn" type="PackedScene" id=48]
+[ext_resource path="res://models/sodaGlass.glb" type="PackedScene" id=49]
+[ext_resource path="res://models/sodaCan.glb" type="PackedScene" id=50]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -221,7 +225,10 @@ transform = Transform( 1.351, 0, 0, 0, 1, 0, 0, 0, 1, 1.29693, 0, -7.95 )
 transform = Transform( 3.483, 0, 0, 0, 1, 0, 0, 0, 1, 3.647, 0, -7.95 )
 
 [node name="wall3" parent="outer_walls" instance=ExtResource( 7 )]
-transform = Transform( -2.62268e-07, 0, 1, 0, 1, 0, -6, 0, -4.37114e-08, 0, 0, 0 )
+transform = Transform( -1.33626e-07, 0, 1, 0, 1, 0, -3.057, 0, -4.37114e-08, 0, 0, 0 )
+
+[node name="wall10" parent="outer_walls" instance=ExtResource( 7 )]
+transform = Transform( -8.50187e-08, 0, 1, 0, 1, 0, -1.945, 0, -4.37114e-08, 0, 0, -4.05633 )
 
 [node name="wall7" parent="outer_walls" instance=ExtResource( 7 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -7 )
@@ -249,6 +256,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.315, 0, -7.95 )
 
 [node name="wallWindowSlide4" parent="outer_walls" instance=ExtResource( 20 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -6 )
+
+[node name="wallWindowSlide5" parent="outer_walls" instance=ExtResource( 20 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -3.05693 )
 
 [node name="inner_walls" type="Node" parent="."]
 
@@ -306,10 +316,10 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -
 transform = Transform( 0.178303, 0, 0.175237, 0, 0.25, 0, -0.175237, 0, 0.178303, 2.08103, 0.599722, -5.30124 )
 
 [node name="bathroom_key" parent="keys" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5702, 0.05, -7.61856 )
+transform = Transform( 0.202339, -0.14683, 6.41813e-09, 0, -1.09278e-08, -0.25, 0.14683, 0.202339, -8.84451e-09, 4.82871, 0.433162, -2.99522 )
 
 [node name="front_key" parent="keys" instance=ExtResource( 2 )]
-transform = Transform( 0.213057, -0.130415, -0.00992726, 0, 0.0189753, -0.249279, 0.130792, 0.212443, 0.0161713, 6.026, 0.585, -6.355 )
+transform = Transform( 0.213057, -0.130415, -0.00992726, 0, 0.0189753, -0.249279, 0.130792, 0.212443, 0.0161713, 6.64046, 0.505351, -6.15361 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
@@ -326,10 +336,19 @@ environment = SubResource( 9 )
 [node name="living_room" type="Node" parent="."]
 
 [node name="loungeDesignSofa" parent="living_room" instance=ExtResource( 10 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.06225, 0.05, -3.30675 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.73799, 0.05, -3.30675 )
 
 [node name="tableCoffee" parent="living_room" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.22282, 0.05, -3.75539 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75466, 0.05, -3.7399 )
+
+[node name="pizzaBox" parent="living_room/tableCoffee" instance=ExtResource( 45 )]
+transform = Transform( -0.2863, 0, -0.201327, 0, 0.35, 0, 0.201327, 0, -0.2863, -0.034103, 0.23329, -0.135795 )
+
+[node name="pizza" parent="living_room/tableCoffee/pizzaBox" instance=ExtResource( 42 )]
+transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 0, 0.026396, 0 )
+
+[node name="sodaGlass" parent="living_room/tableCoffee" instance=ExtResource( 49 )]
+transform = Transform( 0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.362183, 0.228737, -0.232532 )
 
 [node name="ceilingFan" parent="living_room" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61627, 1.23898, -3.69251 )
@@ -341,6 +360,38 @@ shadow_bias = 0.2
 omni_range = 2.5
 omni_attenuation = 1.8025
 omni_shadow_mode = 0
+
+[node name="loungeChair" parent="living_room" instance=ExtResource( 29 )]
+transform = Transform( 0.723847, 0, -0.689961, 0, 1, 0, 0.689961, 0, 0.723847, 2.25228, 0.05, -4.07003 )
+
+[node name="sodaCan" parent="living_room/loungeChair" instance=ExtResource( 50 )]
+transform = Transform( 0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.035762, 0.371673, -0.121705 )
+
+[node name="tableCross" parent="living_room" instance=ExtResource( 48 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.24258, 0.05, -2.32859 )
+
+[node name="televisionModern" parent="living_room/tableCross" instance=ExtResource( 47 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.425202, 0.362322, -0.204466 )
+
+[node name="sodaCan" parent="living_room/tableCross" instance=ExtResource( 50 )]
+transform = Transform( 0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.087237, 0.347339, -0.390675 )
+
+[node name="lampSquareFloor" parent="living_room" instance=ExtResource( 28 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.26889, 0.05, -4.76352 )
+
+[node name="OmniLight" type="OmniLight" parent="living_room/lampSquareFloor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576744, 0.140008, -0.0571041 )
+shadow_enabled = true
+shadow_bias = 0.01
+omni_range = 1.5
+omni_attenuation = 2.73208
+
+[node name="OmniLight2" type="OmniLight" parent="living_room/lampSquareFloor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576744, 0.849813, -0.0571041 )
+shadow_enabled = true
+shadow_bias = 0.01
+omni_range = 1.5
+omni_attenuation = 2.73208
 
 [node name="bathroom" type="Node" parent="."]
 

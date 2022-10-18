@@ -68,8 +68,27 @@ Sweet, let's try this again with the kitchen :)
 - [x] top cabinets
 - [x] undercabinet lighting
 - [x] kitchen lights
-- [ ] dining table
-- [ ] chairs
-- [ ] light fixture
-- [ ] pizza
-- [ ] drinks
+- [x] dining table
+- [x] chairs
+- [x] light fixture
+- [x] pizza
+- [x] drinks
+
+### 2022.10.17
+
+Let's move onto the living room, and use this to finish v1.0
+
+- [x] tv stand
+- [x] tv
+- [x] end table w/ soda on it
+- [x] pizza and soda on coffee table
+- [x] windows on walls
+- [x] floor lamp
+
+- [x] place bathroom door key
+- [x] place player in starting position
+- [x] name for game
+- [ ] title screen
+- [x] controls
+- [x] ability to quit/restart
+- [ ] win screen
