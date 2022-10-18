@@ -61,13 +61,13 @@ Yesterday was a mega success, both because of the TODO list and because I gave m
 
 Sweet, let's try this again with the kitchen :)
 
-- [ ] fridge
-- [ ] stove
-- [ ] sink
-- [ ] countertops
-- [ ] top cabinets
-- [ ] undercabinet lighting
-- [ ] kitchen lights
+- [x] fridge
+- [x] stove
+- [x] sink
+- [x] countertops
+- [x] top cabinets
+- [x] undercabinet lighting
+- [x] kitchen lights
 - [ ] dining table
 - [ ] chairs
 - [ ] light fixture

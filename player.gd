@@ -33,6 +33,8 @@ var bedroom_door_open = false
 var bathroom_door_open = false
 var front_door_open = false
 
+var mouse_mode_set = false
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	crosshair.hide()
@@ -41,6 +43,7 @@ func _ready():
 func _input(event):
 	#get mouse input for camera rotation
 	if event is InputEventMouseMotion:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		rotate_y(deg2rad(-event.relative.x * mouse_sense))
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sense))
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
