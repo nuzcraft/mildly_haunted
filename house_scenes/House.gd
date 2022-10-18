@@ -16,11 +16,6 @@ func _ready():
 	Events.connect("bathroom_door_close", self, "_on_bathroom_door_close")
 	Events.connect("front_door_open", self, "_on_front_door_open")
 	Events.connect("front_door_close", self, "_on_front_door_close")
-	if self.name == "House_01":
-#		animationPlayer.play("bedroom_door_open")
-#		bedroom_key.queue_free()
-#		player.bedroom_door_open = true
-		pass
 	SoundPlayer.play_music(SoundPlayer.MUSIC)
 	randomizeCreakTimer()
 

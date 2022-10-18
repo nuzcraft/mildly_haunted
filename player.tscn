@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://textures/crosshair.png" type="Texture" id=2]
@@ -203,6 +203,165 @@ tracks/3/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Vignette:material:shader_param/MULTIPLIER")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.8 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Vignette:material:shader_param/SCALE")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.8 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Head:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0.308487, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Head:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 90 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "vignette_fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Vignette:material:shader_param/SCALE")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.8, 0.0 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "wake_up"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Vignette:material:shader_param/SCALE")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ 0.0, 0.8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Head:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector3( 0, -0.2, 0 ), Vector3( 0, 0.308487, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Head:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 90 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "BigMessage_FadeIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("BigMessage:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 49, 100 ), Vector2( 49, 50 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BigMessage:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "BigMessage_FadeOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("BigMessage:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BigMessage:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 49, 50 ), Vector2( 49, 100 ) ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "Crosshair_FadeIn"
@@ -273,7 +432,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 2.54912, 1.03527 ),
+"transitions": PoolRealArray( -2, -2 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -285,9 +444,9 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1.56917, 0.615572 ),
+"transitions": PoolRealArray( -2, -2 ),
 "update": 0,
-"values": [ Vector2( 89.5, 210 ), Vector2( 89.5, 193.5 ) ]
+"values": [ Vector2( 20, 210 ), Vector2( 20, 193.5 ) ]
 }
 
 [sub_resource type="Animation" id=12]
@@ -301,7 +460,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1.86607, 0.594604 ),
+"transitions": PoolRealArray( -2, -2 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -313,9 +472,9 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1.51572, 0.535887 ),
+"transitions": PoolRealArray( -2, -2 ),
 "update": 0,
-"values": [ Vector2( 89.5, 193.5 ), Vector2( 89.5, 210 ) ]
+"values": [ Vector2( 20, 193.5 ), Vector2( 20, 210 ) ]
 }
 
 [sub_resource type="Animation" id=13]
@@ -368,6 +527,126 @@ tracks/3/keys = {
 "update": 0,
 "values": [ true ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("BigMessage:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 49, 50 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BigMessage:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Vignette:material:shader_param/SCALE")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.8 ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "controls_menu"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("BigMessage:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BigMessage:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 49, 150 ), Vector2( 49, 50 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Vignette:material:shader_param/SCALE")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ 0.8, 0.2 ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "controls_menu_off"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Vignette:material:shader_param/SCALE")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ 0.2, 0.8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BigMessage:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector2( 49, 50 ), Vector2( 49, 150 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BigMessage:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( -0.5, -2 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=17]
+size = 32
+font_data = ExtResource( 3 )
 
 [node name="player" type="KinematicBody"]
 collision_layer = 2
@@ -386,7 +665,7 @@ cast_shadow = 0
 mesh = SubResource( 2 )
 
 [node name="Head" type="Spatial" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.308487, 0 )
+transform = Transform( -2.18557e-08, -0.5, 0, 0.5, -2.18557e-08, 0, 0, 0, 0.5, 0, 0.308487, 0 )
 
 [node name="Camera" type="Camera" parent="Head"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
@@ -423,8 +702,8 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = 89.5
 margin_top = 193.5
-margin_right = 230.5
-margin_bottom = 208.5
+margin_right = 371.5
+margin_bottom = 223.5
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = SubResource( 3 )
@@ -441,12 +720,36 @@ anims/Crosshair_FadeOut = SubResource( 8 )
 anims/Message_FadeIn = SubResource( 4 )
 anims/Message_FadeOut = SubResource( 5 )
 anims/RESET = SubResource( 6 )
+anims/vignette_fade_out = SubResource( 22 )
+anims/wake_up = SubResource( 16 )
 
 [node name="MessageAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/BigMessage_FadeIn = SubResource( 18 )
+anims/BigMessage_FadeOut = SubResource( 19 )
 anims/Crosshair_FadeIn = SubResource( 9 )
 anims/Crosshair_FadeOut = SubResource( 10 )
 anims/Message_FadeIn = SubResource( 11 )
 anims/Message_FadeOut = SubResource( 12 )
 anims/RESET = SubResource( 13 )
+anims/controls_menu = SubResource( 20 )
+anims/controls_menu_off = SubResource( 21 )
+
+[node name="BigMessage" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 49.0
+margin_top = 50.0
+margin_right = 271.0
+margin_bottom = 80.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 17 )
+text = "find your way out"
+align = 1
+valign = 1
+
+[node name="BigMessageTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
+[connection signal="timeout" from="BigMessageTimer" to="." method="_on_BigMessageTimer_timeout"]

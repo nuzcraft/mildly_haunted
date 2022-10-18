@@ -24,29 +24,50 @@ onready var messageTimer := $MessageTimer
 onready var animationPlayer := $AnimationPlayer
 onready var messageAnimationPlayer := $MessageAnimationPlayer
 onready var crosshair := $Crosshair
+onready var bigMessage := $BigMessage
+onready var bigMessageTimer := $BigMessageTimer
 
 var has_bedroom_key = false
-var has_bathroom_key = true
-var has_front_key = false
+var has_bathroom_key = false
+var has_front_key = true
 
 var bedroom_door_open = false
 var bathroom_door_open = false
 var front_door_open = false
 
-var mouse_mode_set = false
+var fully_awake = false
+var paused = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	crosshair.hide()
-	print(crosshair.visible)
+	$AnimationPlayer.play("wake_up")
+	yield(animationPlayer, "animation_finished")
+	set_big_message("find your way out\n\nesc for controls")
+	fully_awake = true
 
 func _input(event):
 	#get mouse input for camera rotation
 	if event is InputEventMouseMotion:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		rotate_y(deg2rad(-event.relative.x * mouse_sense))
-		head.rotate_x(deg2rad(-event.relative.y * mouse_sense))
-		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
+		if not paused:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			if fully_awake:
+				rotate_y(deg2rad(-event.relative.x * mouse_sense))
+				head.rotate_x(deg2rad(-event.relative.y * mouse_sense))
+				head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
+			
+	if Input.is_action_just_pressed("ui_cancel"):
+		if not paused:
+			bigMessage.text = "mouse to look\nwasd to move\nclick to interact\nr to restart"
+			paused = true
+			messageAnimationPlayer.play("controls_menu")
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			messageAnimationPlayer.play("controls_menu_off")
+			paused = false
+		
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
 		
 	if Input.is_action_just_pressed("select"):
 		if ray.is_colliding():
@@ -75,6 +96,7 @@ func _input(event):
 						Events.emit_signal("front_door_open")
 						front_door_open = true
 						collider.remove_from_group("interactable")
+						win_the_game()
 					else:
 						set_message("front door locked")
 						SoundPlayer.play_sound(SoundPlayer.DOOR_LOCKED)
@@ -136,7 +158,8 @@ func _physics_process(delta):
 	velocity = velocity.linear_interpolate(direction * speed, accel * delta)
 	movement = velocity + gravity_vec
 	
-	move_and_slide_with_snap(movement, snap, Vector3.UP)
+	if fully_awake and not paused:
+		move_and_slide_with_snap(movement, snap, Vector3.UP)
 	
 func set_message(text):
 	if messageTimer.time_left > 0:
@@ -161,3 +184,20 @@ func show_interact_crosshair():
 				return
 	if crosshair.visible:
 		animationPlayer.play("Crosshair_FadeOut")
+		
+func set_big_message(text):
+	if bigMessageTimer.time_left > 0:
+		yield(bigMessageTimer, "timeout")
+	bigMessage.text = text
+	bigMessageTimer.wait_time = 3
+	bigMessageTimer.start()
+	messageAnimationPlayer.play("BigMessage_FadeIn")
+
+func _on_BigMessageTimer_timeout():
+	messageAnimationPlayer.play("BigMessage_FadeOut")
+	
+func win_the_game():
+	bigMessage.text = ""
+	messageAnimationPlayer.play("controls_menu")
+	yield(messageAnimationPlayer, "animation_finished")
+	get_tree().change_scene("res://WinScreen.tscn")

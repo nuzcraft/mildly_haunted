@@ -78,17 +78,17 @@ Sweet, let's try this again with the kitchen :)
 
 Let's move onto the living room, and use this to finish v1.0
 
-- [ ] tv stand
-- [ ] tv
-- [ ] end table w/ soda on it
-- [ ] pizza and soda on coffee table
-- [ ] windows on walls
-- [ ] floor lamp
+- [x] tv stand
+- [x] tv
+- [x] end table w/ soda on it
+- [x] pizza and soda on coffee table
+- [x] windows on walls
+- [x] floor lamp
 
-- [ ] place bathroom door key
-- [ ] place player in starting position
-- [ ] name for game
+- [x] place bathroom door key
+- [x] place player in starting position
+- [x] name for game
 - [ ] title screen
-- [ ] controls
-- [ ] ability to quit/restart
+- [x] controls
+- [x] ability to quit/restart
 - [ ] win screen
