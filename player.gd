@@ -29,7 +29,7 @@ onready var bigMessageTimer := $BigMessageTimer
 
 var has_bedroom_key = false
 var has_bathroom_key = false
-var has_front_key = true
+var has_front_key = false
 
 var bedroom_door_open = false
 var bathroom_door_open = false
