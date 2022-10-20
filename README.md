@@ -101,7 +101,7 @@ v1.0 and v1.1 have been released. People are playing this game for some reason ð
 
 #### Objects move around
 
-- [ ] lift and spin miscellaneous objects (pizza, soda cans) - put these on a random timer
+- [x] lift and spin miscellaneous objects (pizza, soda cans) - put these on a random timer
 - [ ] shift bedroom - move furniture to a different wall
   - [ ] add scraping sound
   - [ ] add trigger

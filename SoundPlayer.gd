@@ -9,10 +9,12 @@ const CREAK1 := preload("res://sounds/creak1.ogg")
 const CREAK2 := preload("res://sounds/creak2.ogg")
 const CREAK3 := preload("res://sounds/creak3.ogg")
 const MUSIC := preload("res://sounds/Juhani Junkala - Post Apocalyptic Wastelands [Loop Ready].ogg")
+const BOOK_FLIP := preload("res://sounds/bookFlip1.ogg")
+const DROP_LEATHER := preload("res://sounds/dropLeather.ogg")
+const METAL_POT := preload("res://sounds/metalPot3.ogg")
 
 onready var audioPlayers := $AudioPlayers
 onready var musicPlayers := $MusicPlayers
-onready var footstepAudioPlayer := $FootstepAudioPlayer
 
 func play_sound(sound):	
 	for audioStreamPlayer in audioPlayers.get_children():

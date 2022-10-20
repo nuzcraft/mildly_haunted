@@ -1,9 +1,11 @@
 extends Spatial
 
 onready var animationPlayer := $AnimationPlayer
+onready var spookyAnimationPlayer := $SpookyAnimationPlayer
 onready var player := $player
 onready var bedroom_key := $keys/bedroom_key
 onready var creakTimer := $CreakTimer
+onready var spookyTimer := $SpookyTimer
 
 var rng = RandomNumberGenerator.new()
 
@@ -18,6 +20,7 @@ func _ready():
 	Events.connect("front_door_close", self, "_on_front_door_close")
 	SoundPlayer.play_music(SoundPlayer.MUSIC)
 	randomizeCreakTimer()
+	randomizeSpookyTimer()
 
 func _on_bedroom_door_open():
 	animationPlayer.play("bedroom_door_open")
@@ -58,3 +61,28 @@ func randomizeCreakTimer():
 	rng.randomize()
 	creakTimer.wait_time = rng.randf_range(25.0, 45.0)
 	creakTimer.start()
+
+func _on_SpookyTimer_timeout():
+	rng.randomize()
+	if spookyAnimationPlayer.is_playing():
+		yield(spookyAnimationPlayer, "animation_finished")
+	var spooki_selected = rng.randi_range(1, 4)
+	if spooki_selected == 1:
+		spookyAnimationPlayer.play("knock_lamp")
+#		SoundPlayer.play_sound(SoundPlayer.METAL_POT)
+	elif spooki_selected == 2:
+		spookyAnimationPlayer.play("move_books")
+#		SoundPlayer.play_sound(SoundPlayer.BOOK_FLIP)
+	elif spooki_selected == 3:
+		spookyAnimationPlayer.play("soda_slide")
+#		SoundPlayer.play_sound(SoundPlayer.METAL_POT)
+	elif spooki_selected == 4:
+		spookyAnimationPlayer.play("pizza_spin")
+#		SoundPlayer.play_sound(SoundPlayer.DROP_LEATHER)
+	randomizeSpookyTimer()
+	
+func randomizeSpookyTimer():
+	rng.randomize()
+	spookyTimer.wait_time = rng.randf_range(25.0, 45.0)
+	spookyTimer.start()
+		
