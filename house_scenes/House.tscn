@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://collision_models/doorwayFront.tscn" type="PackedScene" id=1]
 [ext_resource path="res://collision_models/key.tscn" type="PackedScene" id=2]
@@ -51,6 +51,10 @@
 [ext_resource path="res://models/sodaGlass.glb" type="PackedScene" id=49]
 [ext_resource path="res://models/sodaCan.glb" type="PackedScene" id=50]
 [ext_resource path="res://sounds/metalPot3.ogg" type="AudioStream" id=51]
+[ext_resource path="res://sounds/handleSmallLeather2.ogg" type="AudioStream" id=52]
+[ext_resource path="res://sounds/drawKnife2.ogg" type="AudioStream" id=53]
+[ext_resource path="res://sounds/knifeSlice.ogg" type="AudioStream" id=54]
+[ext_resource path="res://sounds/footstep09.ogg" type="AudioStream" id=55]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -353,38 +357,18 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 40.369, 0, 0 ), Vector3( 83.247, 0, 0 ), Vector3( 83.247, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 tracks/2/type = "audio"
-tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/path = NodePath("bedroom/cabinetBedDrawer/lampRoundTable/AudioStreamPlayer3D")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("AudioStreamPlayer:stream")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 1.2 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ ExtResource( 51 ) ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("AudioStreamPlayer:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0, 1.2, 2.1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ false, true, false ]
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 51 )
+} ],
+"times": PoolRealArray( 1.2 )
 }
 
 [sub_resource type="Animation" id=12]
@@ -400,7 +384,33 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5, 3, 3.5, 4.5, 5, 7, 8 ),
 "transitions": PoolRealArray( -2, -2, -2, -2, -2, -2, -2, -2 ),
 "update": 0,
-"values": [ Vector3( 0.556503, 0.0726191, -0.0872159 ), Vector3( 0.556503, 0.0726191, 0.13312 ), Vector3( 0.557, 0.39, 0.133 ), Vector3( 0.556503, 0.392954, -0.0300903 ), Vector3( 0.556503, 0.392954, -0.0300903 ), Vector3( 0.557, 0.376, 0.133 ), Vector3( 0.557, 0.174, 0.133 ), Vector3( 0.556503, 0.0726191, -0.0872159 ) ]
+"values": [ Vector3( 0.556503, 0.0726191, -0.0872159 ), Vector3( 0.556503, 0.0726191, 0.13312 ), Vector3( 0.557, 0.324, 0.133 ), Vector3( 0.557, 0.324, -0.03 ), Vector3( 0.557, 0.324, -0.03 ), Vector3( 0.557, 0.324, 0.133 ), Vector3( 0.557, 0.174, 0.133 ), Vector3( 0.556503, 0.0726191, -0.0872159 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("bedroom/bookcaseClosedWide/books2/AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 53 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 53 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 53 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 53 )
+} ],
+"times": PoolRealArray( 0, 3.2, 4.5, 7.5 )
 }
 
 [sub_resource type="Animation" id=15]
@@ -430,6 +440,28 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector3( 0, -144.885, 0 ), Vector3( 0, -504.885, 0 ) ]
 }
+tracks/2/type = "audio"
+tracks/2/path = NodePath("living_room/tableCoffee/pizzaBox/AudioStreamPlayer3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 55 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 55 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 55 )
+} ],
+"times": PoolRealArray( 0, 0.3, 0.6 )
+}
 
 [sub_resource type="Animation" id=14]
 resource_name = "soda_slide"
@@ -457,6 +489,50 @@ tracks/1/keys = {
 "transitions": PoolRealArray( -2, -2, -2, -2, -2 ),
 "update": 0,
 "values": [ Vector3( 0.497356, 0.101054, -0.572304 ), Vector3( 0.338387, 0.101054, -0.743235 ), Vector3( 0.0466862, 0.101054, -0.548225 ), Vector3( 0.344772, 0.101054, -0.727037 ), Vector3( 0.497356, 0.101054, -0.572304 ) ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("kitchen/tableRound/soda/AudioStreamPlayer3D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 52 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 52 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 52 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 52 )
+} ],
+"times": PoolRealArray( 0.1, 1.2, 2.4, 3.3 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("kitchen/tableRound/sodaBottle/AudioStreamPlayer3D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 54 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 54 )
+} ],
+"times": PoolRealArray( 0, 3.7 )
 }
 
 [node name="House" type="Spatial"]
@@ -605,13 +681,16 @@ transform = Transform( -0.2863, 0, -0.201327, 0, 0.35, 0, 0.201327, 0, -0.2863, 
 [node name="pizza" parent="living_room/tableCoffee/pizzaBox" instance=ExtResource( 42 )]
 transform = Transform( 1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, 1, 0, 0.026396, 0 )
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="living_room/tableCoffee/pizzaBox"]
+stream = ExtResource( 55 )
+
 [node name="sodaGlass" parent="living_room/tableCoffee" instance=ExtResource( 49 )]
 transform = Transform( 0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -0.362183, 0.228737, -0.232532 )
 
 [node name="ceilingFan" parent="living_room" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61627, 1.23898, -3.69251 )
 
-[node name="OmniLight" type="OmniLight" parent="living_room/ceilingFan"]
+[node name="OmniLight" type="OmniLight" parent="living_room/ceilingFan" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.186925, 0 )
 shadow_enabled = true
 shadow_bias = 0.01
@@ -637,14 +716,14 @@ transform = Transform( 0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.087237, 0.347339, -
 [node name="lampSquareFloor" parent="living_room" instance=ExtResource( 28 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.26889, 0.05, -4.76352 )
 
-[node name="OmniLight" type="OmniLight" parent="living_room/lampSquareFloor"]
+[node name="OmniLight" type="OmniLight" parent="living_room/lampSquareFloor" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576744, 0.140008, -0.0571041 )
 shadow_enabled = true
 shadow_bias = 0.01
 omni_range = 1.5
 omni_attenuation = 2.73208
 
-[node name="OmniLight2" type="OmniLight" parent="living_room/lampSquareFloor"]
+[node name="OmniLight2" type="OmniLight" parent="living_room/lampSquareFloor" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576744, 0.849813, -0.0571041 )
 shadow_enabled = true
 shadow_bias = 0.01
@@ -674,7 +753,7 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.515, 
 [node name="lampWall" parent="bathroom" instance=ExtResource( 17 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 5.811, 0.989, -6.055 )
 
-[node name="OmniLight" type="OmniLight" parent="bathroom/lampWall"]
+[node name="OmniLight" type="OmniLight" parent="bathroom/lampWall" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00304461, 0.0829655, 0.0894384 )
 light_indirect_energy = 5.0
 shadow_enabled = true
@@ -685,7 +764,7 @@ omni_attenuation = 2.73208
 [node name="lampWall2" parent="bathroom" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.917, 0.989, -7.95 )
 
-[node name="OmniLight" type="OmniLight" parent="bathroom/lampWall2"]
+[node name="OmniLight" type="OmniLight" parent="bathroom/lampWall2" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00304461, 0.0829655, 0.0894384 )
 light_indirect_energy = 5.0
 shadow_enabled = true
@@ -699,7 +778,7 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.908, 
 [node name="lampSquareCeiling" parent="bathroom" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36242, 1.00044, -6.87679 )
 
-[node name="OmniLight" type="OmniLight" parent="bathroom/lampSquareCeiling"]
+[node name="OmniLight" type="OmniLight" parent="bathroom/lampSquareCeiling" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0614333, 0.0146047, -0.0637565 )
 light_indirect_energy = 5.0
 shadow_enabled = true
@@ -718,12 +797,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.575, 0.05, -7.713 )
 [node name="lampRoundTable" parent="bedroom/cabinetBedDrawer" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0620058, 0.26197, -0.0484209 )
 
-[node name="OmniLight" type="OmniLight" parent="bedroom/cabinetBedDrawer/lampRoundTable"]
+[node name="OmniLight" type="OmniLight" parent="bedroom/cabinetBedDrawer/lampRoundTable" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576746, 0.158699, -0.0571041 )
 shadow_enabled = true
 shadow_bias = 0.01
 omni_range = 1.5
 omni_attenuation = 2.73208
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="bedroom/cabinetBedDrawer/lampRoundTable"]
+stream = ExtResource( 51 )
+bus = "Effects"
 
 [node name="cabinetBedDrawer2" parent="bedroom" instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.116, 0.05, -7.713 )
@@ -731,7 +814,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.116, 0.05, -7.713 )
 [node name="lampRoundTable" parent="bedroom/cabinetBedDrawer2" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0620058, 0.26197, -0.0484209 )
 
-[node name="OmniLight" type="OmniLight" parent="bedroom/cabinetBedDrawer2/lampRoundTable"]
+[node name="OmniLight" type="OmniLight" parent="bedroom/cabinetBedDrawer2/lampRoundTable" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576746, 0.158699, -0.0571041 )
 shadow_enabled = true
 shadow_bias = 0.01
@@ -753,13 +836,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0494916, 0.555082, -0.08565 
 [node name="books2" parent="bedroom/bookcaseClosedWide" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.556503, 0.0726191, -0.0872159 )
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="bedroom/bookcaseClosedWide/books2"]
+stream = ExtResource( 53 )
+
 [node name="cabinetBed" parent="bedroom" instance=ExtResource( 25 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.338879, 0.05, -5.96751 )
 
 [node name="lampRoundTable" parent="bedroom/cabinetBed" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.062006, 0.228256, -0.0484209 )
 
-[node name="OmniLight" type="OmniLight" parent="bedroom/cabinetBed/lampRoundTable"]
+[node name="OmniLight" type="OmniLight" parent="bedroom/cabinetBed/lampRoundTable" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576746, 0.158699, -0.0571041 )
 shadow_enabled = true
 shadow_bias = 0.01
@@ -772,14 +858,14 @@ transform = Transform( -0.759374, 0, 0.650655, 0, 1, 0, -0.650655, 0, -0.759374,
 [node name="lampSquareFloor" parent="bedroom" instance=ExtResource( 28 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.963196, 0.05, -5.26863 )
 
-[node name="OmniLight" type="OmniLight" parent="bedroom/lampSquareFloor"]
+[node name="OmniLight" type="OmniLight" parent="bedroom/lampSquareFloor" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576744, 0.140008, -0.0571041 )
 shadow_enabled = true
 shadow_bias = 0.01
 omni_range = 1.5
 omni_attenuation = 2.73208
 
-[node name="OmniLight2" type="OmniLight" parent="bedroom/lampSquareFloor"]
+[node name="OmniLight2" type="OmniLight" parent="bedroom/lampSquareFloor" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0576744, 0.849813, -0.0571041 )
 shadow_enabled = true
 shadow_bias = 0.01
@@ -789,7 +875,7 @@ omni_attenuation = 2.73208
 [node name="ceilingFan" parent="bedroom" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.959, 1.239, -6.846 )
 
-[node name="OmniLight" type="OmniLight" parent="bedroom/ceilingFan"]
+[node name="OmniLight" type="OmniLight" parent="bedroom/ceilingFan" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.146912, 0 )
 shadow_enabled = true
 shadow_bias = 0.01
@@ -808,7 +894,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52469, 0.0499999, -6.17654 )
 [node name="lampWall" parent="hallway" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50842, 0.989, -7.95 )
 
-[node name="OmniLight" type="OmniLight" parent="hallway/lampWall"]
+[node name="OmniLight" type="OmniLight" parent="hallway/lampWall" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00304461, 0.0829655, 0.0894384 )
 shadow_enabled = true
 shadow_bias = 0.01
@@ -856,7 +942,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.78652
 [node name="kitchenCabinetUpperLow" parent="kitchen" instance=ExtResource( 38 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79854, 1.02115, -5.79536 )
 
-[node name="OmniLight" type="OmniLight" parent="kitchen/kitchenCabinetUpperLow"]
+[node name="OmniLight" type="OmniLight" parent="kitchen/kitchenCabinetUpperLow" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.253053, -0.0352278, -0.0453434 )
 light_energy = 0.5
 light_indirect_energy = 5.697
@@ -877,7 +963,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.09164, 0.843416, -5.794 )
 [node name="lampSquareCeiling2" parent="kitchen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.83958, 1.01085, -5.74956 )
 
-[node name="OmniLight" type="OmniLight" parent="kitchen/lampSquareCeiling2"]
+[node name="OmniLight" type="OmniLight" parent="kitchen/lampSquareCeiling2" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0614333, 0.0146047, -0.0637565 )
 light_indirect_energy = 5.0
 shadow_enabled = true
@@ -888,7 +974,7 @@ omni_range = 1.5
 [node name="lampSquareCeiling3" parent="kitchen" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.70771, 1.01085, -5.32237 )
 
-[node name="OmniLight" type="OmniLight" parent="kitchen/lampSquareCeiling3"]
+[node name="OmniLight" type="OmniLight" parent="kitchen/lampSquareCeiling3" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0614333, 0.0146047, -0.0637565 )
 light_indirect_energy = 5.0
 shadow_enabled = true
@@ -902,7 +988,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.22298, 0.32, -2.4973 )
 [node name="ceilingFan" parent="kitchen/tableRound" instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.384248, 0.91898, -0.419548 )
 
-[node name="OmniLight" type="OmniLight" parent="kitchen/tableRound/ceilingFan"]
+[node name="OmniLight" type="OmniLight" parent="kitchen/tableRound/ceilingFan" groups=["lights"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.186925, 0 )
 shadow_enabled = true
 shadow_bias = 0.01
@@ -919,8 +1005,16 @@ transform = Transform( 1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -0.004077
 [node name="soda" parent="kitchen/tableRound" instance=ExtResource( 43 )]
 transform = Transform( 0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.497356, 0.101054, -0.572304 )
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="kitchen/tableRound/soda"]
+stream = ExtResource( 52 )
+unit_db = -5.0
+
 [node name="sodaBottle" parent="kitchen/tableRound" instance=ExtResource( 44 )]
 transform = Transform( 0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.103305, 0.0973503, -0.372305 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="kitchen/tableRound/sodaBottle"]
+stream = ExtResource( 54 )
+unit_db = -12.0
 
 [node name="sodaCanCrushed" parent="kitchen/tableRound" instance=ExtResource( 46 )]
 transform = Transform( 0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.153118, -0.26926, -0.740853 )
@@ -951,8 +1045,11 @@ anims/soda_slide = SubResource( 14 )
 stream = ExtResource( 51 )
 bus = "Effects"
 
+[node name="FlickerTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="CreakTimer" to="." method="_on_CreakTimer_timeout"]
 [connection signal="timeout" from="SpookyTimer" to="." method="_on_SpookyTimer_timeout"]
+[connection signal="timeout" from="FlickerTimer" to="." method="_on_FlickerTimer_timeout"]
 
 [editable path="doors/bathroom_door"]
 [editable path="doors/bedroom_door_pivot/bedroom_door"]

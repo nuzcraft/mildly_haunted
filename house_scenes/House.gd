@@ -6,9 +6,9 @@ onready var player := $player
 onready var bedroom_key := $keys/bedroom_key
 onready var creakTimer := $CreakTimer
 onready var spookyTimer := $SpookyTimer
+onready var flickerTimer := $FlickerTimer
 
 var rng = RandomNumberGenerator.new()
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +21,7 @@ func _ready():
 	SoundPlayer.play_music(SoundPlayer.MUSIC)
 	randomizeCreakTimer()
 	randomizeSpookyTimer()
+	randomizeFlickerTimer()
 
 func _on_bedroom_door_open():
 	animationPlayer.play("bedroom_door_open")
@@ -69,20 +70,50 @@ func _on_SpookyTimer_timeout():
 	var spooki_selected = rng.randi_range(1, 4)
 	if spooki_selected == 1:
 		spookyAnimationPlayer.play("knock_lamp")
-#		SoundPlayer.play_sound(SoundPlayer.METAL_POT)
 	elif spooki_selected == 2:
 		spookyAnimationPlayer.play("move_books")
-#		SoundPlayer.play_sound(SoundPlayer.BOOK_FLIP)
 	elif spooki_selected == 3:
 		spookyAnimationPlayer.play("soda_slide")
-#		SoundPlayer.play_sound(SoundPlayer.METAL_POT)
 	elif spooki_selected == 4:
 		spookyAnimationPlayer.play("pizza_spin")
-#		SoundPlayer.play_sound(SoundPlayer.DROP_LEATHER)
 	randomizeSpookyTimer()
 	
 func randomizeSpookyTimer():
 	rng.randomize()
-	spookyTimer.wait_time = rng.randf_range(25.0, 45.0)
+	spookyTimer.wait_time = rng.randf_range(20.0, 40.0)
 	spookyTimer.start()
-		
+	
+func flicker_a_light():
+	var lights = get_tree().get_nodes_in_group("lights")
+	rng.randomize()
+	var index: int =  randi() % lights.size()
+	flicker_light(lights[index])
+	
+func flicker_light(light):
+	rng.randomize()
+	var original_energy = light.light_energy
+	light.light_energy = 0
+	rng.randomize()
+	yield(get_tree().create_timer(rng.randf_range(0.05, 0.15)), "timeout")
+	light.light_energy = original_energy
+	rng.randomize()
+	yield(get_tree().create_timer(rng.randf_range(0.05, 0.15)), "timeout")
+	light.light_energy = 0
+	rng.randomize()
+	yield(get_tree().create_timer(rng.randf_range(0.05, 0.15)), "timeout")
+	light.light_energy = original_energy
+	rng.randomize()
+	yield(get_tree().create_timer(rng.randf_range(0.05, 0.15)), "timeout")
+	light.light_energy = 0
+	rng.randomize()
+	yield(get_tree().create_timer(rng.randf_range(0.05, 0.15)), "timeout")
+	light.light_energy = original_energy
+	
+func randomizeFlickerTimer():
+	rng.randomize()
+	flickerTimer.wait_time = rng.randf_range(1.0, 3.0)
+	flickerTimer.start()
+
+func _on_FlickerTimer_timeout():
+	flicker_a_light()
+	randomizeFlickerTimer()

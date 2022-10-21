@@ -111,8 +111,8 @@ v1.0 and v1.1 have been released. People are playing this game for some reason ð
 
 #### Flickering lights
 
-- [ ] create function to make lights flicker on and off quickly
-- [ ] somewhat randomly flicker some lights
+- [x] create function to make lights flicker on and off quickly
+- [x] somewhat randomly flicker some lights
 
 #### Keystealer
 
