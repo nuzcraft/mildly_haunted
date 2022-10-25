@@ -11,6 +11,7 @@ const CREAK3 := preload("res://sounds/creak3.ogg")
 const MUSIC := preload("res://sounds/Juhani Junkala - Post Apocalyptic Wastelands [Loop Ready].ogg")
 const LAMP_DROP := preload("res://sounds/metalPot3.ogg")
 const BOOK_MOVE := preload("res://sounds/drawKnife2.ogg")
+const GHOST := preload("res://sounds/ghost.wav")
 
 onready var audioPlayers := $AudioPlayers
 onready var musicPlayers := $MusicPlayers

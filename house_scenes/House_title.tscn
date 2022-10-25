@@ -80,6 +80,12 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, -
 [node name="front_door" parent="doors" index="1"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.1, 0, -2.97543 )
 
+[node name="pizzaBox" parent="living_room/tableCoffee" index="2"]
+transform = Transform( -0.2863, 0, -0.201327, 0, 0.35, 0, 0.201327, 0, -0.2863, -0.034103, 0.23329, -0.135795 )
+
+[node name="pizza" parent="living_room/tableCoffee/pizzaBox" index="1"]
+transform = Transform( 1, 0, -8.94069e-08, 0, 1, 0, 8.94069e-08, 0, 1, 0, 0.026396, 0 )
+
 [node name="TitleCamera" type="Camera" parent="." index="15"]
 transform = Transform( -0.811554, -0.293943, 0.504954, 0, 0.864235, 0.503088, -0.584278, 0.408283, -0.701373, 2.406, 0.743, -4.411 )
 script = ExtResource( 2 )
