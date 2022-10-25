@@ -93,4 +93,42 @@ Let's move onto the living room, and use this to finish v1.0
 - [ ] title screen
 - [x] controls
 - [x] ability to quit/restart
-- [ ] win screen
+- [x] win screen
+
+### 2022.10.20
+
+v1.0 and v1.1 have been released. People are playing this game for some reason 😆 Now it's time to add some more spooky stuff.
+
+#### Objects move around
+
+- [x] lift and spin miscellaneous objects (pizza, soda cans) - put these on a random timer
+- [ ] shift bedroom - move furniture to a different wall
+  - [ ] add scraping sound
+  - [ ] add trigger
+- [ ] shift living room - move furniture to a new location
+  - [ ] add scraping sound
+  - [ ] add trigger
+
+#### Flickering lights
+
+- [x] create function to make lights flicker on and off quickly
+- [x] somewhat randomly flicker some lights
+
+#### Keystealer
+
+- [ ] something steals the a key to a locked door
+  - [ ] screenshake
+  - [ ] oof sound
+  - [ ] animate vignette to red then back to black
+  - [ ] key is placed somewhere else in house
+  - [ ] message to say which key was lost
+- [ ] set up spawn points for keys
+- [ ] set up replacement key scenes
+- [ ] set up code to 'randomly' interrupt the player
+- [ ] model to jump scare the player?
+
+#### cold spots?
+
+- [ ] vignette turns blue
+- [ ] 'brr it's cold' pops up
+- [ ] happens randomly?

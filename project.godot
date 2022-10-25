@@ -12,7 +12,7 @@ config_version=4
 
 config/name="Mildly Haunted"
 run/main_scene="res://house_scenes/House_title.tscn"
-config/icon="res://icon.png"
+config/icon="res://gifs/Screenshot 2022-10-19 153914.png"
 
 [autoload]
 

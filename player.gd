@@ -26,6 +26,8 @@ onready var messageAnimationPlayer := $MessageAnimationPlayer
 onready var crosshair := $Crosshair
 onready var bigMessage := $BigMessage
 onready var bigMessageTimer := $BigMessageTimer
+onready var spookyAnimationPlayer := $SpookyAnimationPlayer
+onready var spookyRay := $Head/Camera/SpookyRayCast
 
 var has_bedroom_key = false
 var has_bathroom_key = false
@@ -37,6 +39,7 @@ var front_door_open = false
 
 var fully_awake = false
 var paused = false
+var spookied = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -68,6 +71,16 @@ func _input(event):
 		
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
+		
+	if spookyRay.is_colliding():
+		var collider = spookyRay.get_collider()
+		if not collider == null and not spookied:
+			if collider.is_in_group("front_door"):
+				if has_front_key:
+					spookyAnimationPlayer.play("spooki")
+					SoundPlayer.play_sound(SoundPlayer.GHOST)
+					camera.add_shake(.5)
+					spookied = true
 		
 	if Input.is_action_just_pressed("select"):
 		if ray.is_colliding():

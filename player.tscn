@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://textures/crosshair.png" type="Texture" id=2]
 [ext_resource path="res://rainyhearts.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://ShakeCamera.gd" type="Script" id=4]
 [ext_resource path="res://textures/white.png" type="Texture" id=5]
+[ext_resource path="res://textures/spooki.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -250,6 +251,42 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 90 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Spooki:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Vignette:material:shader_param/color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("White:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=22]
@@ -648,6 +685,85 @@ tracks/2/keys = {
 size = 32
 font_data = ExtResource( 3 )
 
+[sub_resource type="Animation" id=23]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Spooki:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../White:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Vignette:material:shader_param/color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "spooki"
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Spooki:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.76, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../White:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 0.08 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Vignette:material:shader_param/color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.76, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.266667, 0.141176, 0.203922, 1 ), Color( 0.266667, 0.141176, 0.203922, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
 [node name="player" type="KinematicBody"]
 collision_layer = 2
 script = ExtResource( 1 )
@@ -676,6 +792,10 @@ script = ExtResource( 4 )
 enabled = true
 cast_to = Vector3( 0, 0, -0.9 )
 
+[node name="SpookyRayCast" type="RayCast" parent="Head/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -1.5 )
+
 [node name="Crosshair" type="TextureRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -700,10 +820,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 89.5
-margin_top = 193.5
-margin_right = 371.5
-margin_bottom = 223.5
+margin_left = -70.5
+margin_top = -46.5
+margin_right = 211.5
+margin_bottom = -16.5
 grow_horizontal = 2
 grow_vertical = 2
 custom_fonts/font = SubResource( 3 )
@@ -738,9 +858,9 @@ anims/controls_menu_off = SubResource( 21 )
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 49.0
+margin_left = -111.0
 margin_top = 50.0
-margin_right = 271.0
+margin_right = 111.0
 margin_bottom = 80.0
 grow_horizontal = 2
 custom_fonts/font = SubResource( 17 )
@@ -750,6 +870,24 @@ valign = 1
 
 [node name="BigMessageTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Spooki" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
+
+[node name="White" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="SpookyAnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+anims/RESET = SubResource( 23 )
+anims/spooki = SubResource( 24 )
 
 [connection signal="timeout" from="MessageTimer" to="." method="_on_MessageTimer_timeout"]
 [connection signal="timeout" from="BigMessageTimer" to="." method="_on_BigMessageTimer_timeout"]
